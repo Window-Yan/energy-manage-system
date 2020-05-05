@@ -6,7 +6,7 @@
 ## Specification of project
 
 You are a software development team that is responsible for developing a **smart energy management and monitoring system** as part of the big smart home project.
- * The smart energy monitoring system should make it easy for the consumer to view their electricity and gas usage and help then=m to keep the cost down.
+ * The smart energy monitoring system should make it easy for the consumer to view their electricity and gas usage and help them to keep the cost down.
  * The energy provider should be able to use the energy management system to set up tariff, get the meter reading from each household and generate bills.
  * Each household can have only one smart energy monitoring software, one smart electricity meter and one gas meter.
  * The smart energy monitoring software can communicate with the smart electricity meter and smart gas meter.
