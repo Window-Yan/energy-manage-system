@@ -3,6 +3,13 @@
 * This system is a task in college and  I  want to redo it.
 * Luckily I find my coursework file.
 ----
+## How to understand version in my java files
+* Example 0.1.20200510.1228
+ * 0: ifnormal version, it increase if mang changes happen.
+ * 1: base version, it will not change for the time being.
+ * 20200510: data of last modify
+ * 1228: time of last modify
+----
 ## Specification of project
 
 You are a software development team that is responsible for developing a **smart energy management and monitoring system** as part of the big smart home project.
