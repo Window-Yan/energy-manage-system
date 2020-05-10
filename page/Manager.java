@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 /**
  * 
  * @author Window
- * @version 0.1.20200510.1225
+ * @version 0.1.20200510.1518
  *
  */
 public class Manager {
@@ -74,6 +74,25 @@ public class Manager {
 			}
 		});
 		
+		home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				homePanel(right);
+				f.repaint();
+			}			
+		});
+		
+		userOperation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				userOperationPanel(right);
+			}			
+		});
+		
+		setTariff.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setTariffPanel(right);
+			}			
+		});
+		
 		f.add(left);
 		f.add(right);
 		
@@ -114,7 +133,18 @@ public class Manager {
 		j.add(b);
 		
 		j.setResizable(false);
-		j.setVisible(true);
-				
-	} 
+		j.setVisible(true);				
+	}
+	
+	private void homePanel(JPanel p) {
+		
+	}
+	
+	private void userOperationPanel(JPanel p) {
+		
+	}
+	
+    private void setTariffPanel(JPanel p) {
+		
+	}
 }
