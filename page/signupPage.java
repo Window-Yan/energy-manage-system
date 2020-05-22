@@ -11,7 +11,8 @@ import jdbc.jdbcMethod;
 /**
  * 
  * @author Window
- * @version 0.1.20200518.2215
+ * @version 0.1.20200522.1657
+ * 修复了mail和password输入为空可以注册的bug
  *
  */
 public class signupPage {
@@ -63,7 +64,7 @@ public class signupPage {
 			public void actionPerformed(ActionEvent e) {
 				setPwd(l3.getPassword());
 				setPwdd(l5.getPassword());
-				if(l1.getText()!=null && l3.getPassword()!=null && l5.getPassword()!=null) {
+				if(l1.getText().length()!=0 && getPwd().length()!=0 && getPwdd().length()!=0) {
 					if(getPwd().equals(getPwdd())) {
 						//验证邮箱是否存在
 						//执行SQL添加操作
