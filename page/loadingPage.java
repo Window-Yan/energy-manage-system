@@ -11,7 +11,8 @@ import javax.swing.JFrame;
 /**
  * 
  * @author Window
- * @version 0.1.20200510.1233
+ * @version 0.1.20200522.1712
+ * 修复了登录界面账号和密码可以为空的bug
  *
  */
 public class loadingPage {
@@ -62,32 +63,40 @@ public class loadingPage {
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				var u = new jdbcMethod();
-				if(tfMail.getText()!=null && psPwd.getPassword()!=null) {					
-					u.getManagerPwd(tfMail.getText());
+				if(tfMail.getText().length()!=0 && psPwd.getPassword().length!=0) {					
+					u.getPwd(tfMail.getText());
 					String inputPwd = String.valueOf(psPwd.getPassword());
 					//判断账户是否可以正常使用
 					if(u.getIfNormal() && u.getIfManager() ) {
+						//进入管理员界面
 						//判断密码账号密码是否一致
-						String pwd = u.getManagerPwd();
-						System.out.println(inputPwd+"\t"+pwd);
+						String pwd = u.getUserPwd();
 						if(pwd.equals(inputPwd)) {
 							var m = new Manager(tfMail.getText(), inputPwd);
 							f.setVisible(false);
 							m.homePage();
 						}else {
-							System.out.println("账号和密码不一致");	
+							JOptionPane.showMessageDialog(null, "账号或密码错误！", "Error", JOptionPane.ERROR_MESSAGE);	
 						}						
 					}else if(u.getIfNormal() && !u.getIfManager()) {
 						//进入用户主页面
-						System.out.println("进入用户主页面");
-					}else if(!u.getIfNormal()){
-						System.out.println("用户账号异常不可使用");	
+						//判断密码账号密码是否一致
+						String pwd = u.getUserPwd();
+						if(pwd.equals(inputPwd)) {
+							var m = new Household(tfMail.getText(), inputPwd);
+							f.setVisible(false);
+							m.homePage();
+						}else {
+							JOptionPane.showMessageDialog(null, "账号或密码错误！", "Error", JOptionPane.ERROR_MESSAGE);	
+						}
+					}else if(!u.getIfNormal() && u.getUserPwd() !=null){
+						JOptionPane.showMessageDialog(null, "账号异常不可用！", "Error", JOptionPane.ERROR_MESSAGE);
 					}else {
-						System.out.println("用户不存在");	
+						JOptionPane.showMessageDialog(null, "用户不存在！", "Error", JOptionPane.ERROR_MESSAGE);	
 					}																				
 				}else {
 					//弹出弹框，邮箱名和密码不能为空
-					System.out.println("账号密码不能为空");
+					JOptionPane.showMessageDialog(null, "账号或密码不能为空！", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
@@ -134,4 +143,3 @@ public class loadingPage {
 	}
 	
 }
-
