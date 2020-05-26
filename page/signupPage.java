@@ -11,8 +11,9 @@ import jdbc.jdbcMethod;
 /**
  * 
  * @author Window
- * @version 0.1.20200522.1657
- * 修复了mail和password输入为空可以注册的bug
+ * @version 0.1.20200526.2344
+ * 完善了注册成功没有提醒
+ * 20200526.2344 完善了用户注册时生成能源记录表
  *
  */
 public class signupPage {
@@ -70,6 +71,9 @@ public class signupPage {
 						//执行SQL添加操作
 						var v = new jdbcMethod();
 						v.insert(1, l1.getText(), getPwd());
+						v.creatTable(l1.getText(), "Id");
+						f.setVisible(false);
+						JOptionPane.showMessageDialog(null, "注册成功","",JOptionPane.PLAIN_MESSAGE);						
 					}else {
 						JOptionPane.showMessageDialog(null, "两次输入密码不一致","Warning",JOptionPane.WARNING_MESSAGE);
 					}
