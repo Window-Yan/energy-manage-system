@@ -11,9 +11,10 @@ import jdbc.jdbcMethod;
 /**
  * 
  * @author Window
- * @version 0.1.20200526.2344
+ * @version 0.1.20200607.1250
  * 完善了注册成功没有提醒
  * 20200526.2344 完善了用户注册时生成能源记录表
+ * 20200607.1250 增加了创建新对象的时候加载主页面的代码
  *
  */
 public class signupPage {
@@ -23,7 +24,7 @@ public class signupPage {
 	private String pwdd = null;	
 
 	public signupPage() {
-				
+		creatPage();		
 	}
 	
 	public void creatPage() {
